@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("user_service")
+@Service()
 public class UserService extends CrudService<User, String, UserModel> {
 
     @Autowired()
@@ -27,7 +27,7 @@ public class UserService extends CrudService<User, String, UserModel> {
 
     @Override
     public User buildBaseCreation(UserModel dto) {
-        return super.getMapper().toEntity(dto);
+        return super.mapper.toEntity(dto);
     }
 
     @Override

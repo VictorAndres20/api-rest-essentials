@@ -24,14 +24,6 @@ public abstract class CrudService<T, ID, D> implements BasicCrud<D, ID>  {
 
     public abstract T buildBaseUpload(D dto);
 
-    protected JpaRepository<T, ID> getRepo() {
-        return this.repo;
-    }
-
-    protected DtoMapper<T, D> getMapper(){
-        return this.mapper;
-    }
-
     @Override
     public List<D> findAll() {
         return this.mapper.toDtoList(this.repo.findAll());
